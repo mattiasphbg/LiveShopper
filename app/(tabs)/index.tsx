@@ -1,74 +1,44 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+import React from "react";
+import { View, TouchableOpacity } from "react-native";
+import { Text } from "@/components/ui/text";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+export default function LandingPage() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <View className="flex-1 items-center justify-center bg-background">
+      <Avatar className="w-16 h-16 mt-6 ">
+        <AvatarImage
+          source={{
+            uri: "https://github.com/shadcn.png",
+          }}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      </Avatar>
+      <View className="m-6">
+        <Text className="text-2xl font-bold">Welcome LiveShopper</Text>
+        <View className="flex-row gap-4">
+          <Text className="text-lg">About</Text>
+          <Text className="text-lg">Services</Text>
+          <Text className="text-lg">Contact</Text>
+        </View>
+      </View>
+
+      <View className="flex-1 items-center justify-center px-4">
+        <Text className="text-4xl font-bold text-center">
+          Your Success is Our Mission
+        </Text>
+        <Text className="text-lg text-center">
+          We provide top-notch solutions to help your business grow and succeed.
+          Join us today and take the first step towards a brighter future.
+        </Text>
+        <TouchableOpacity className="bg-primary p-4 rounded-md mt-4">
+          <Text className="text-white text-center">Get Started</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View className="flex-row justify-center items-center mt-4">
+        <Text className="text-lg text-center">
+          &copy; 2023 Your Company Name. All rights reserved.
+        </Text>
+      </View>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
