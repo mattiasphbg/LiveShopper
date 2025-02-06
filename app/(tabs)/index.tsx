@@ -33,12 +33,6 @@ export default function LandingPage() {
           <Text className="text-white text-center">Get Started</Text>
         </TouchableOpacity>
       </View>
-
-      <View className="flex-row justify-center items-center mt-4">
-        <Text className="text-lg text-center">
-          &copy; 2023 Your Company Name. All rights reserved.
-        </Text>
-      </View>
     </View>
   );
 }
