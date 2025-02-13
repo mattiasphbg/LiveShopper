@@ -27,7 +27,7 @@ export default function Test() {
   function toggleCameraFacing() {
     setFacing((current) => (current === "back" ? "front" : "back"));
   }
-
+  ///
   return (
     <>
       <View style={styles.container}>
